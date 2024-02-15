@@ -1,0 +1,136 @@
+
+.contrat_1 {
+    grid-column: 3 / 9;
+    grid-row: 2 /  10;
+    overflow: auto;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+h1 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+    p{
+        margin: 30px;
+        font-size: 19px;
+    }
+        
+img{
+    width: 150px;
+    height: 150px;
+}
+.images{
+    text-align: center;
+    margin: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 70px;
+}
+.images > div {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-right: 50px;
+}
+form {
+display: flex;
+flex-direction: column;
+}
+
+.input-box {
+display: flex;
+flex-direction: column;
+margin-bottom: 1rem;
+width: 30%;
+}
+
+.input-box label {
+font-weight: bold;
+margin-bottom: 0.5rem;
+}
+
+ input[type="text"],
+ input[type="date"],
+ input[type="file"] {
+padding: 0.5rem;
+border-radius: 0.25rem;
+border: 1px solid #ccc;
+text-align: center;
+margin: 5px;
+}
+
+.input[type="text"]{
+    width: 40%;
+}
+
+.input-box input[type="submit"]:hover {
+background-color: aqua;
+}
+.date_inp{
+display: flex;
+width: 100%;
+margin: 20px;
+justify-content: space-around
+
+}
+    input[type="date"] {
+padding: 6px 10px;
+margin: 8px 0;
+box-sizing: border-box;
+display: inline-block;
+
+}
+input[type="file"]{
+  height: 80px;
+  margin: 40px;
+}
+.submit{
+    width: 20%;
+background-color: #f5c7f7;
+border-radius: 0.25rem;
+border: 1px solid #ccc;
+padding: 10px 20px;
+margin: 60px;
+}
+.term input{
+    width: 70%;
+    margin: 30px;
+}
+.input_term{
+    width: 15%;
+    margin-bottom: 50px;
+    margin-left: 70%;
+    border-radius: 0.25rem;
+border: 1px solid #ccc;
+padding: 8px 15px;
+
+}
+.submit {
+background-color: #4CAF50; /* Set the background color */
+border: none; /* Remove border */
+color: white; /* Set the text color */
+padding: 12px 24px; /* Add padding */
+text-align: center; /* Center the text */
+text-decoration: none; /* Remove underline */
+display: inline-block; /* Display as inline block */
+font-size: 16px; /* Set the font size */
+cursor: pointer; /* Add cursor on hover */
+border-radius: 4px; /* Add rounded corners */
+}
+
+.submit:hover {
+background-color: #45a049; /* Change the background color on hover */
+}
+
+.add{
+margin: 40px;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaboration Portal</title>
+   
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+             background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+
+        }
+        .part{
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            width: 80%;
+            margin: 100px auto;
+            text-align: center;
+        }
+        p{
+            font-size: 100%;
+            line-height: 1.5;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .partie {
+            display: inline-block;
+            width: 45%;
+            padding: 20px;
+            border: 4px solid #ccc;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .partie h2 {
+            margin-top: 0;
+        }
+
+        .partie p {
+            margin-top: 20px;
+        }
+
+        .brand-link, .influencer-link {
+            text-decoration: none;
+            background-color: plum;
+            color: darkorchid;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 50px
+        }
+        .header{
+            grid-area: header;
+        background-color: #c2c2c2;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        font-size: 35px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Bienvenue sur SocialSway,</h1>
+        <div class="part">
+        <div class="partie">
+            <h2>ÊTES-VOUS UNE MARQUE ?</h2>
+            <p>Cherchez-vous des influenceurs avec qui collaborer ?</p>
+            <p>Rejoignez-nous dès aujourd'hui et explorez les nombreuses opportunités qui vous permettront de développer votre entreprise, d'étendre votre portée et de collaborer avec des influenceurs renommés. Notre plateforme vous offre un espace privilégié pour établir des partenariats stratégiques et exploiter le potentiel du marketing d'influence.</p>
+          <a class="brand-link" href="marque.php">Marque</a> 
+
+</div> 
+        <div class="partie">
+            <h2>ÊTES-VOUS UN INFLUENCEUR ? </h2>
+            <p>Êtes-vous à la recherche de marques avec lesquelles collaborer ?</p>
+            <p>Rejoignez notre communauté d'influenceurs dès aujourd'hui et découvrez les opportunités qui vous permettront de développer votre carrière, d'élargir votre audience et de collaborer avec des marques prestigieuses.</p>
+            <a class="influencer-link" href="inf.php">Influenceur</a>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

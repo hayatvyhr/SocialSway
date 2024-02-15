@@ -1,0 +1,321 @@
+<?php
+session_start();
+
+try {
+  $pdo = new PDO("mysql:host=localhost;dbname=projet;port=3306","root","");
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $pdo->setAttribute(PDO::ATTR_CONNECTION_STATUS, true);
+}catch(PDOException $e){
+  die("error: could not connect" . $e->getMessage());
+}
+if (isset($_POST['email']) && isset($_POST['password'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+   
+    try { 
+        $sql = "SELECT id , nom, motdepasse, imagee FROM influencer WHERE email = :email "; 
+        $st = $pdo->prepare($sql);
+        $st->bindParam(':email', $email);                      
+        $st->execute(); 
+        $data = $st->fetch();
+        
+        if ($data) {
+            if ($password === $data['motdepasse']) {
+                $_SESSION['nom'] = $data['nom'];
+                $_SESSION['id'] = $data['id'];
+	            $_SESSION['user_type']='inf';
+                $_SESSION['image'] = 'image/' . $data['imagee'];
+
+	            header("Location: dashboard_inf.php");
+                exit();
+            } else {
+                // si le mot de passe est incorrect, afficher un message d'erreur
+                echo "<script>confirm(\"Mot de passe incorrect. Veuillez réessayer!!!\");</script>";
+            }
+        } else {
+            // utilisateur avec l'e-mail saisi introuvable dans la base de données, afficher un message d'erreur
+            echo "<script>confirm(\"Utilisateur non trouvé. Veuillez d'abord vous inscrire!!!\");</script>";
+        }
+    } catch(PDOException $e) {
+        die("Error: " . $e->getMessage());
+    }
+   
+
+
+
+// marque
+if (isset($_POST['email']) && isset($_POST['password'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    
+    try { 
+        $sql = "SELECT nom, motdepasse,logo,id FROM marque WHERE email = :email "; 
+        $st = $pdo->prepare($sql);
+        $st->bindParam(':email', $email);            
+        $st->execute(); 
+        $data = $st->fetch();
+
+        if ($data) {
+            if ($password === $data['motdepasse']) {
+                $_SESSION['nom'] = $data['nom'];
+                $_SESSION['id'] = $data['id'];
+	            $_SESSION['user_type']='mar';
+                $_SESSION['email'] = $email;
+                $_SESSION['logo'] = 'image/' . $data['logo']; 
+                header("Location: dashboard_mar.php");
+                exit();
+            } else {
+                // si le mot de passe est incorrect, afficher un message d'erreur
+                echo "<script>confirm(\"Mot de passe incorrect. Veuillez réessayer!!!\");</script>";
+            }
+        } else {
+            // utilisateur avec l'e-mail saisi introuvable dans la base de données, afficher un message d'erreur
+            echo "<script>confirm(\"Utilisateur non trouvé. Veuillez d'abord vous inscrire!!!\");</script>";
+        }
+    } catch(PDOException $e) {
+        die("Error: " . $e->getMessage());
+    }
+}
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Webpage Design</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+<style>
+            body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 200px; /* Add space for the fixed header */
+            text-align: center;
+            
+        }
+
+        .section {
+            /* margin-bottom: 500px; 
+            padding: 100px 200px; */
+            margin-bottom: 50px; 
+    padding: 100px 200px;
+        }
+
+        .services {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 50px;
+        }
+
+        .service-box {
+            width: 250px;
+            height: 200px;
+            margin: 0 20px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            background: rgba( 255, 255, 255, 0.2 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        }
+
+        .service-box:hover {
+            transform: translateY(-10px);
+        }
+        h3{
+            margin: 15px;
+        }
+     .about-us {
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 50px;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        h1{
+            margin: 25px;
+        }
+        p{
+            margin: 20px;
+        }
+        .contact .icon {
+        font-size: 4.5em;}
+
+        .contact .info h3{
+        color: black;
+        }
+        .contact .info p {
+            font-size: 1.5em;}
+        .footer {
+            background-color: wheat;
+            padding: 2em;
+            display: flex;
+            justify-content: space-between;
+            background: rgba( 255, 255, 255, 0.2 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        }
+
+        .footer .social-icons{
+            font-size: 2em;
+            padding: 0 12px 0 0;
+
+        }
+        .card{
+ background-color: aliceblue;
+ width: 21.25em;
+ box-shadow:  0 5px 25px rgba(1 1 1/15%);
+ border-radius: 10px;
+ padding: 25px;
+ margin: 15px;
+transition: 0.7s ease;
+
+
+}
+.content_c{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: none wrap;
+  
+ 
+  }
+</style>
+
+</head>
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">SociAlSway</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="inscription.html">Inscription</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#services">SERVICE</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                    <li><a href="adminlogin.php">ADMIN</a></li>
+
+                </ul>
+            </div>
+
+          
+        </div> 
+        <div class="content">
+            <h1>Influencer& <span>Marque</span></h1>
+            <p class="par">En rejoignant SocialSway,vous accédez à un univers d'opportunités pour développer <br>
+                  votre influence  et atteindre de nouveaux sommets   Notre plateforme vous permettra  <br>
+                 de découvrir des collaborations  exclusives avec des marques de renom, <br>
+                 de participer à des campagnes uniques et de monétiser votre influence. <br>
+                  quis nesciunt. Quos nulla vero consequuntur, fugit nemo ad delectus <br> 
+                 a quae totam ipsa illum minus laudantium?</p>
+
+                <button class="cn"><a href="inscription.html">JOIN US</a></button>
+
+                
+                   <form method="POST" action="login.php"> 
+                     
+                      <h2>Login</h2>
+                     
+                       <input type="email" name="email" required placeholder="Entrez votre email ">
+                       <input type="password" name="password" id="password" required  placeholder="Entrez votre mot de passe">
+
+                       <button class="btnn"><a href="#">Se Connecter</a></button>
+               
+                        
+                        <p class="link">Don't have an account<br>
+                        <a href="inscription.html">Sign up </a> here</a></p>
+
+                    </form>
+                    </div>
+                </div>
+        </div>
+        <div class="container">
+        <section id="about" class="section">
+            <div class="about-us">
+                <h1>About Us</h1>
+                <p>Bienvenue sur SocialSway,
+                SocialSway est une plateforme innovante dédiée aux influenceurs et aux marques qui souhaitent collaborer et créer un impact significatif. Notre objectif est de connecter les influenceurs les plus talentueux avec les marques les plus prestigieuses, afin de générer des partenariats fructueux et de propulser leur visibilité sur les réseaux sociaux.
+                En rejoignant SocialSway, vous accédez à un univers d'opportunités pour développer votre influence et atteindre de nouveaux sommets. Notre plateforme vous permettra de découvrir des collaborations exclusives avec des marques de renom, de participer à des campagnes uniques et de monétiser votre influence.
+                Nous mettons à votre disposition des outils avancés pour gérer vos collaborations, suivre vos performances et optimiser votre présence en ligne. Grâce à notre technologie de pointe, vous pourrez mesurer l'engagement de votre audience, analyser les résultats de vos campagnes et maximiser votre retour sur investissement.
+                Chez SocialSway, nous valorisons la créativité, l'authenticité et l'innovation. Nous sommes fiers de soutenir nos membres dans leur développement professionnel en leur offrant un réseau de soutien et d'inspiration. Notre communauté dynamique d'influenceurs est un lieu d'échange, de partage d'expériences et de conseils pour vous aider à atteindre vos objectifs.
+                Rejoignez-nous dès aujourd'hui sur SocialSway et commencez votre voyage vers le succès en tant qu'influenceur. Ensemble, nous pouvons créer des partenariats puissants, inspirer des millions de personnes et faire évoluer le paysage du marketing d'influence.
+                Bienvenue dans l'univers captivant de SocialSway !</p>
+            </div>
+        </section>
+        </section>
+
+        <section id="services" class="section">
+            <h2>Our Services</h2>
+            <div class="services">
+                <div class="service-box">
+                    <h3>Gestion de campagnes</h3>
+                    <p> Une fois qu'une collaboration est établie, notre plateforme propose des outils de gestion de campagnes pour faciliter le suivi et l'organisation. </p>
+                </div>
+                <div class="service-box">
+                    <h3>Messagerie et négociation</h3>
+                    <p>Notre plateforme facilite la communication entre les marques et les influenceurs grâce à un système de messagerie intégré</p>
+                </div>
+                <div class="service-box">
+                    <h3>Recherche et filtrage</h3>
+                    <p>Notre plateforme dispose d'un système de recherche avancé qui permet aux marques de trouver les influenceurs correspondant à leurs besoins spécifiques. </p>
+                </div>
+            </div>
+        </section>
+
+
+                            <section  class="contact" id="contact">
+                    <h2 class="title">For Contact</h2>
+                    <div class="content_c">
+                        <div class="card">
+                        <div class="icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="info">
+                            <h3>phone</h3>
+                            <p>+2126655998665</p>
+
+                        </div>
+                        </div>
+                        <div class="card">
+                        <div class="icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="info">
+                            <h3>email</h3>
+                            <p>SocialSway@gmail.com</p>
+                        </div>
+                        </div>
+                    </div>
+                    </section>
+
+                    <footer class="footer">
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                        <a href="# ">
+                        <i class="fa-brands fa-facebook"></i></a>
+                    </div>
+
+                    </footer>
+    </div>
+</body>
+</html>
+               
+    </div>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+</html>
