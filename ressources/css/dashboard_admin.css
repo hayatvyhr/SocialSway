@@ -1,0 +1,621 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Poppins;
+}
+
+body{
+    padding: 15px;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+
+
+}
+h1  {
+    color: #c2c2c2;
+}
+.container {  display: grid;
+    width: 100%;
+    height: 1500px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px 20px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "menu_lateral menu_lateral header header header header header header"
+    "menu_lateral menu_lateral e1 e2 e3 e4 cal cal"
+    "menu_lateral menu_lateral offers offers impressions impressions cal cal"
+    "menu_lateral menu_lateral offers offers impressions impressions best_brands best_brands"
+    "menu_lateral menu_lateral offers offers impressions impressions best_brands best_brands"
+
+    "menu_lateral menu_lateral free free free free best_brands best_brands"
+    "menu_lateral menu_lateral footer footer footer footer footer footer";
+}
+
+.menu_lateral {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    ". . . ml_m ml_n ."
+    ". . ml_profil ml_profil . ."
+    ". . ml_profil ml_profil . ."
+    ". ml_name ml_name ml_name ml_name ."
+    "ml_list ml_list ml_list ml_list ml_list ml_list"
+    "ml_list ml_list ml_list ml_list ml_list ml_list"
+    "ml_list ml_list ml_list ml_list ml_list ml_list"
+    "ml_list ml_list ml_list ml_list ml_list ml_list"
+    "ml_list ml_list ml_list ml_list ml_list ml_list"
+    "ml_list ml_list ml_list ml_list ml_list ml_list"
+    "ml_list ml_list ml_list ml_list ml_list ml_list"
+    "ml_list ml_list ml_list ml_list ml_list ml_list"
+    "ml_list ml_list ml_list ml_list ml_list ml_list"
+    "ml_list ml_list ml_list ml_list ml_list ml_list"
+    "ml_list ml_list ml_list ml_list ml_list ml_list"
+    ". . . . . ."
+    ". . . . . .";
+    grid-area: menu_lateral;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.ml_n {
+    grid-area: ml_n;
+    display: flex;
+}
+.ml_m img{
+    width: 30%;
+    height: 30%;
+    padding: 35%;
+}
+.ml_n img{
+    width: 30%;
+    height: 30%;
+    padding: 35%;
+}
+.ml_m {
+    grid-area: ml_m;
+    display: flex;
+}
+.ml_profil {
+    grid-area: ml_profil;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ml_profil img{
+    object-fit: cover;
+    image-resolution: normal;
+    border-radius: 50%;
+    width: 70%;
+    height: 70%;
+    background: #c2c2c2;
+    box-shadow:  5px 5px 19px #939393,
+    -5px -5px 19px #f1f1f1;
+}
+.ml_name {
+    grid-area: ml_name;
+    text-align: center;
+
+}
+
+.ml_list {
+    grid-area: ml_list;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ml_list ul{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.ml_list ul li {
+    display: block;
+    padding: 15px;
+    width: 50%;
+    height: 150px;
+
+}
+img{
+    object-fit: contain;
+}
+
+
+.ml_list ul li button,.anuller_filtres{
+    width: 100%;
+    height: 100%;
+    border: transparent;
+    transition-duration: .3s;
+    border-radius: 21px;
+    background: #c2c2c2;
+    box-shadow:  5px 5px 19px #939393,
+    -5px -5px 19px #f1f1f1;
+}
+.ml_list ul li button:hover ,.anuller_filtres:hover{
+    background-color: black;
+    color: #c2c2c2smoke;
+    transform: scale(110%);
+    transition-duration: .3s;
+}
+
+.h_menu { grid-area: h_menu;
+    background-color: #c2c2c2;
+    display: flex;
+    width: 100%;
+}
+
+.photo_menu { grid-area: photo_menu;
+    background-color: #c2c2c2;
+    display: flex;
+
+}
+.photo_menu img, .h_menu img {
+    object-fit: contain;
+    width: 50%;
+    height: 50%;
+    padding: 25%;
+}
+
+.name_menu {
+    grid-area: name_menu;
+    background-color: #c2c2c2;
+    display: flex;
+    width: 100%;
+
+}
+
+.list_menu {
+    grid-area: list_menu;
+    background-color: #c2c2c2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.f_menu {
+    grid-area: f_menu;
+    background-color: #c2c2c2;
+    display: flex;
+}
+
+.header { grid-area: header;
+    background-color: #c2c2c2;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.e1 {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "icon icon value"
+    "icon icon value"
+    "description description description";
+    grid-area: e1;
+
+}
+
+.description {
+    grid-area: description;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.descc{
+    width: 80%;
+    height: 80%;
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.icon { grid-area: icon;
+
+}
+.icon ion-icon{
+    width: 60%;
+    height: 60%;
+    padding: 20%;
+}
+
+.icon img{
+    width: 60%;
+    height: 60%;
+    padding: 20%;
+}
+
+.value {
+    grid-area: value;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.value p {
+    margin-right: 20px;
+    text-align: right;
+}
+
+.e2 { display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "icon icon value"
+    "icon icon value"
+    "description description description";
+    grid-area: e2;
+}
+
+.e3 { display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "icon icon value"
+    "icon icon value"
+    "description description description";
+    grid-area: e3;
+}
+
+.e4 { display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "icon icon value"
+    "icon icon value"
+    "description description description";
+    grid-area: e4;
+}
+
+.cal { grid-area: cal;
+    background-color: #c2c2c2;
+}
+
+.offers {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "off_title"
+    "list_offers"
+    "list_offers"
+    "list_offers";
+    grid-area: offers;
+    overflow-y: scroll;
+}
+.offers::-webkit-scrollbar{
+    display: none;
+}
+.off_title {
+    grid-area: off_title;
+    display: flex;
+    flex-direction: row;
+    padding: 25px;
+    padding-left: 35px;
+    gap: 100px;
+}
+.todo_title{
+    grid-area: todo_title;
+    display: flex;
+    flex-direction: row;
+    padding: 25px;
+    padding-left: 35px;
+    gap: 20px;
+}
+.parten_title {
+    grid-area: off_title;
+    display: flex;
+    flex-direction: row;
+    padding: 25px;
+    padding-left: 35px;
+    gap: 60px;
+}
+.todo_list{
+    grid-area: list_todoo;
+
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.todo_list::-webkit-scrollbar {
+    display: none;
+}
+.list_todoo{
+    display: flex;
+    width: 100%;
+
+}
+.list_offers { grid-area: list_offers;
+    padding-right: 35px;}
+
+.parten { grid-area: parten;
+    background-color: #c2c2c2;
+}
+
+.todo { grid-area: todo;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "todo_title"
+    "list_todoo"
+    "list_todoo"
+    "list_todoo"
+    "list_todoo"
+    "list_todoo"
+    "list_todoo";
+    background-color: #c2c2c2;
+}
+
+.revenus { grid-area: revenus;
+    background-color: #c2c2c2;
+}
+
+.footer { grid-area: footer;
+    background-color: #c2c2c2;
+}
+
+.best_brands { grid-area: best_brands;
+    background-color: #c2c2c2;
+    overflow-y: scroll;
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+.best_brands::-webkit-scrollbar {
+    display: none;
+}
+
+.impressions { grid-area: impressions;
+    background-color: #c2c2c2;
+}
+
+.requests { grid-area: requests;
+    background-color: #c2c2c2;
+}
+
+.free { grid-area: free;
+    background-color: #c2c2c2;
+}
+
+.block{
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+
+    background: rgba( 255, 255, 255, 0.3 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 7px );
+    -webkit-backdrop-filter: blur( 7px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+    transition-duration: .2s;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    line-height: 5px;
+    color: #fff;
+    text-align: center;
+}
+
+#s_offres{
+    border: solid transparent;
+    background-color: transparent;
+    font-size: 15px;
+    gap: 20px;
+    display: flex;
+    border-bottom: solid 2px black;
+    height: 30px;
+}
+.list_offers ul, .list_todoo ul{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+.list_offers ul li, .list_todoo ul li {
+    display: grid;
+    width: 100%;
+    height: 100px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0 0;
+    grid-template-areas:
+    "off_icn main_offre main_offre main_offre date_offre"
+    "off_icn main_offre main_offre main_offre date_offre"
+    "off_icn main_offre main_offre main_offre date_offre";
+
+}
+.off_icn { grid-area: off_icn; }
+.off_icn ion-icon{
+    width: 60%;
+    height: 60%;
+    padding: 20%;
+    color: #0A1D94;
+}
+.off_icn img{
+    width: 60%;
+    height: 60%;
+    padding: 20%;
+    color: #0A1D94;
+}
+.main_offre { grid-area: main_offre;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+}
+.date_offre { grid-area: date_offre;
+    color: #0A1D94;
+
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+}
+
+.block:hover{
+    background-color: #e0e0e0;
+
+    transition-duration: .3s;
+}
+.ml_list ul li button,.anuller_filtres{
+    width: 100%;
+    height: 100%;
+    transition-duration: .3s;
+    font-weight: normal;
+
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 20px;
+    align-items: center;
+    text-align: left;
+    border-radius: 30px;
+    background: rgba( 255, 255, 255, 0.3 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 7px );
+    -webkit-backdrop-filter: blur( 7px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.ml_list ion-icon{
+    font-weight: bold;
+    font-size: 40px;
+    margin-left: 30px;
+
+}
+.ml_list img{
+    font-weight: bold;
+    font-size: 40px;
+    margin-left: 30px;
+
+}
+.ml_list ul li button:hover ,.anuller_filtres:hover{
+    background-color: black;
+    color: white;
+    transform: scale(110%);
+    transition-duration: .3s;
+}
+
+.ml_list ul{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.ml_list ul li {
+    display: block;
+    padding: 15px;
+    width: 50%;
+    height: 150px;
+}
+.free2{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+.sm_icns{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition : .1s ease-in;
+
+    gap: 10px;
+    width: 25%;
+    height: 90%;
+    padding:15px;
+}
+
+.sm_icns img{
+    height: 80px;
+    width: 80px;
+    cursor: pointer;
+}
+.sm_icns:hover {
+
+    transform: scale(140%);
+    transition : .1s ease-in;
+
+}
+
+
+
+.todo_list table{
+    padding: 45px;
+    width: 100%;
+}
+
+.todo_list tr th{
+    background: rgba( 56, 0, 144, 0.75 );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: white;
+    height: 80px;
+}
+.todo_list td{
+    background: rgba( 57, 57, 199, 0.6 );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: white;
+    text-align: center;
+    height: 80px;
+
+}
+
+.requests table{
+    padding: 45px;
+    width: 100%;
+}
+
+.requests tr th{
+    background: rgba( 56, 0, 144, 0.75 );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: white;
+    height: 80px;
+}
+.requests td{
+    background: rgba( 57, 57, 199, 0.6 );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: white;
+    text-align: center;
+    height: 80px;
+
+}
+

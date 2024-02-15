@@ -1,0 +1,33 @@
+body {
+    background: rgb(35, 35, 35); /* background color */
+    color: white;
+}
+
+h1 {
+    color: #c2c2c2; /* text color */
+}
+
+.ml_profil img {
+    background: #585858; /* background color */
+    box-shadow: 5px 5px 19px #939393, -5px -5px 19px #f1f1f1; /* box shadow */
+}
+
+.ml_list ul li button,
+.anuller_filtres {
+    background-color: #373737;
+    color: #ffffff; /* text color */
+}
+
+.ml_list ul li button:hover,
+.anuller_filtres:hover {
+    background-color: #ffffff; /* background color */
+    color: #000000; /* text color */
+}
+.block{
+    background-color: #373737;
+    color: white;
+}
+.block:hover{
+    background-color: #373737;
+    color: white;
+}
